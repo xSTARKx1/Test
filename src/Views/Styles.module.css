@@ -1,0 +1,35 @@
+.imagesList {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+  width: 1100px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.loader {
+  text-align: center;
+}
+
+.form {
+  width: 320px;
+  margin-left: 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid #a5a5a5;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
