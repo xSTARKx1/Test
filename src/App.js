@@ -1,29 +1,37 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import AppBar from './Components/AppBar';
-import Homeview from './Views/Homeview';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { useSelector } from 'react-redux';
+import { testSelectors } from './redux';
 import Tab1 from './Views/Tab1';
 import Tab2 from './Views/Tab2';
 import Tab3 from './Views/Tab3';
+import styles from './App.module.css';
 
 function App() {
+  const { firstName, lastName } = useSelector(testSelectors.getUserData);
   return (
     <>
-      <AppBar />
-      <Switch>
-        <Route path="/" exact>
-          <Homeview />
-        </Route>
-        <Route path="/tab1">
+      <Tabs>
+        <TabList className={styles.list}>
+          <Tab>Tab 1</Tab>
+          <Tab>Tab 2</Tab>
+          <Tab>Tab 3</Tab>
+        </TabList>
+        <TabPanel>
           <Tab1 />
-        </Route>
-        <Route path="/tab2">
+        </TabPanel>
+        <TabPanel>
           <Tab2 />
-        </Route>
-        <Route path="/tab3">
+        </TabPanel>
+        <TabPanel>
           <Tab3 />
-        </Route>
-      </Switch>
+          {firstName && (
+            <h2 className={styles.title}>
+              {firstName} {lastName}, вітаємо на нашому сайті!
+            </h2>
+          )}
+        </TabPanel>
+      </Tabs>
     </>
   );
 }
